@@ -2,6 +2,7 @@ fullnameOverride: ingress-nginx
 
 controller:
   replicaCount: 1
+  hostNetwork: true
   extraArgs:
     publish-service: nginx/ingress-nginx-controller
 {{- if .Values.jxRequirements.ingress.tls.enabled }}
