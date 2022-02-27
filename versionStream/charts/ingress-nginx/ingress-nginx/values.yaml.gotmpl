@@ -1,7 +1,7 @@
 fullnameOverride: ingress-nginx
 
 controller:
-  replicaCount: 3
+  replicaCount: 1
   extraArgs:
     publish-service: nginx/ingress-nginx-controller
 {{- if .Values.jxRequirements.ingress.tls.enabled }}
