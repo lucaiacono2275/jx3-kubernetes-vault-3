@@ -113,7 +113,6 @@ spec:
             requests:
               cpu: 100m
               memory: 90Mi
-      hostNetwork: true              
       nodeSelector:
         kubernetes.io/os: linux
       serviceAccountName: ingress-nginx
