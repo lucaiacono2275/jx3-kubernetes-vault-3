@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  creationTimestamp: null
+  labels:
+    name: nfs-subdir-ext-prov
+    gitops.jenkins-x.io/pipeline: 'cluster'
+    team: 'jx'
+  name: nfs-subdir-ext-prov
+spec: {}
+status: {}

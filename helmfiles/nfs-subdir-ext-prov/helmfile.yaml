@@ -1,4 +1,8 @@
 filepath: ""
+environments:
+  default:
+    values:
+    - jx-values.yaml
 namespace: nfs-subdir-ext-prov
 repositories:
 - name: nfs-subdir-external-provisioner
@@ -7,6 +11,7 @@ releases:
 - chart: nfs-subdir-external-provisioner/nfs-subdir-external-provisioner
   name: nfs-subdir-external-provisioner
   values:
-  - values.yaml  
+  - values.yaml
+  - jx-values.yaml
 templates: {}
 renderedvalues: {}

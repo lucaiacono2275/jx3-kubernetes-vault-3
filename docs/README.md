@@ -110,6 +110,15 @@
 	      <td></td>
 	      <td><a href='https://github.com/cdfoundation/tekton-helm-chart'>source</a></td>
 	    </tr>
+    <tr>
+		      <td colspan='4'><h3>nfs-subdir-ext-prov</h3></td>
+		    </tr>
+	    <tr>
+	      <td><a href='https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner' title='nfs-subdir-external-provisioner is an automatic provisioner that used your *already configured* NFS server, automatically creating Persistent Volumes.'> <img src='' width='24px' height='24px'> nfs-subdir-external-provisioner </a></td>
+	      <td></td>
+	      <td></td>
+	      <td><a href='https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner'>source</a></td>
+	    </tr>
 
   </tbody>
 </table>
