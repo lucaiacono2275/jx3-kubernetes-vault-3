@@ -23,4 +23,4 @@ spec:
   tls:
     - hosts:
         - bucketrepo-jx.ihsws.cloud
-      secretName: "tls-ihsws-cloud-s"
+      secretName: "tls-ihsws-cloud-p"
