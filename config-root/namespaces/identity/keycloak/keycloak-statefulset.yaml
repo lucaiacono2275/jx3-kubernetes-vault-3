@@ -1,0 +1,184 @@
+# Source: keycloak/templates/statefulset.yaml
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: keycloak
+  namespace: identity
+  labels:
+    app.kubernetes.io/name: keycloak
+    helm.sh/chart: keycloak-7.0.1
+    app.kubernetes.io/instance: keycloak
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/component: keycloak
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  annotations:
+    meta.helm.sh/release-name: 'keycloak'
+spec:
+  replicas: 1
+  podManagementPolicy: Parallel
+  serviceName: keycloak-headless
+  updateStrategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: keycloak
+      app.kubernetes.io/instance: keycloak
+      app.kubernetes.io/component: keycloak
+  template:
+    metadata:
+      annotations:
+        checksum/configmap-env-vars: cd0abf6db9081496b2b95adc853d47de97305d51d24012ee21ae3c699230350a
+      labels:
+        app.kubernetes.io/name: keycloak
+        helm.sh/chart: keycloak-7.0.1
+        app.kubernetes.io/instance: keycloak
+        app.kubernetes.io/managed-by: Helm
+        app.kubernetes.io/component: keycloak
+    spec:
+      serviceAccountName: keycloak
+      affinity:
+        podAffinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - podAffinityTerm:
+                labelSelector:
+                  matchLabels:
+                    app.kubernetes.io/name: keycloak
+                    app.kubernetes.io/instance: keycloak
+                namespaces:
+                  - "identity"
+                topologyKey: kubernetes.io/hostname
+              weight: 1
+        nodeAffinity:
+      securityContext:
+        fsGroup: 1001
+      initContainers:
+        - name: init-certs
+          image: docker.io/bitnami/keycloak:15.1.0-debian-10-r0
+          imagePullPolicy: "IfNotPresent"
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1001
+          command:
+            - /bin/bash
+            - -ec
+            - |-
+              ID="${MY_POD_NAME#"keycloak-"}"
+              if [[ -f "/certs/keycloak-${ID}.key" ]] && [[ -f "/certs/keycloak-${ID}.crt" ]] && [[ -f "/certs/ca.crt" ]]; then
+                openssl pkcs12 -export -in "/certs/keycloak-${ID}.crt" \
+                    -passout pass:"${KEYCLOAK_TLS_KEYSTORE_PASSWORD}" \
+                    -inkey "/certs/keycloak-${ID}.key" \
+                    -out "/tmp/keystore.p12"
+                keytool -importkeystore -srckeystore "/tmp/keystore.p12" \
+                    -srcstoretype PKCS12 \
+                    -srcstorepass "${KEYCLOAK_TLS_KEYSTORE_PASSWORD}" \
+                    -deststorepass "${KEYCLOAK_TLS_KEYSTORE_PASSWORD}" \
+                    -destkeystore "/opt/bitnami/keycloak/certs/keycloak.keystore.jks"
+                rm "/tmp/keystore.p12"
+                keytool -import -file "/certs/ca.crt" \
+                        -keystore "/opt/bitnami/keycloak/certs/keycloak.truststore.jks" \
+                        -storepass "${KEYCLOAK_TLS_TRUSTSTORE_PASSWORD}" \
+                        -noprompt
+              else
+                  echo "Couldn't find the expected PEM certificates! They are mandatory when encryption via TLS is enabled."
+                  exit 1
+              fi
+          env:
+            - name: MY_POD_NAME
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.name
+            - name: KEYCLOAK_TLS_KEYSTORE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-secret
+                  key: tls-keystore-password
+            - name: KEYCLOAK_TLS_TRUSTSTORE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-secret
+                  key: tls-truestore-password
+          resources:
+            limits: {}
+            requests: {}
+          volumeMounts:
+            - name: certificates
+              mountPath: /certs
+            - name: shared-certs
+              mountPath: /opt/bitnami/keycloak/certs
+      containers:
+        - name: keycloak
+          image: docker.io/bitnami/keycloak:15.1.0-debian-10-r0
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1001
+          env:
+            - name: KUBERNETES_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.namespace
+            - name: BITNAMI_DEBUG
+              value: "false"
+            - name: KEYCLOAK_ADMIN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-secret
+                  key: admin-password
+            - name: KEYCLOAK_MANAGEMENT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-secret
+                  key: management-password
+            - name: KEYCLOAK_DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-postgresql
+                  key: "password"
+          envFrom:
+            - configMapRef:
+                name: keycloak-env-vars
+          resources:
+            limits: {}
+            requests: {}
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+            - name: https
+              containerPort: 8443
+              protocol: TCP
+            - name: http-management
+              containerPort: 9990
+              protocol: TCP
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /auth/
+              port: http
+            initialDelaySeconds: 300
+            periodSeconds: 1
+            successThreshold: 1
+            timeoutSeconds: 5
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /auth/realms/master
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          volumeMounts:
+            - name: shared-certs
+              mountPath: /opt/bitnami/keycloak/certs
+              readOnly: true
+      volumes:
+        - name: certificates
+          secret:
+            secretName: keycloak-crt
+            defaultMode: 420
+        - name: shared-certs
+          emptyDir: {}
