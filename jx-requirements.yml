@@ -22,13 +22,13 @@ spec:
   - key: staging
   - key: production
   ingress:
-    domain: ihsws.cloud
+    domain: ihsws.it
     kind: ingress
     namespaceSubDomain: -jx.
     tls:
       email: luca.iacono@gmail.com
       enabled: true
-      production: true
+      production: false
   pipelineUser:
     username: lucaiacono2275
   repository: bucketrepo
