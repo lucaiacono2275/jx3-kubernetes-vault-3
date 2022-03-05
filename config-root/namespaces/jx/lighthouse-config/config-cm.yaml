@@ -41,7 +41,7 @@ data:
         - needs-rebase
         repos:
         - lucaiacono2275/jx3-kubernetes-vault-3
-      target_url: http://lighthouse-jx.ihsws.cloud/merge/status
+      target_url: http://lighthouse-jx.ihsws.it/merge/status
 kind: ConfigMap
 metadata:
   creationTimestamp: null

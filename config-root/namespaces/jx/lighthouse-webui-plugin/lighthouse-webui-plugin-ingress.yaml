@@ -12,7 +12,6 @@ metadata:
     gitops.jenkins-x.io/pipeline: 'namespaces'
   annotations:
     kubernetes.io/ingress.class: nginx
-    cert-manager.io/cluster-issuer: letsencrypt-prod
     nginx.ingress.kubernetes.io/auth-realm: Authentication Required - Jenkins X Lighthouse Dashboard
     nginx.ingress.kubernetes.io/auth-secret: jx-basic-auth-htpasswd
     nginx.ingress.kubernetes.io/auth-type: basic
@@ -20,7 +19,7 @@ metadata:
   namespace: jx
 spec:
   rules:
-    - host: lighthouse-jx.ihsws.cloud
+    - host: lighthouse-jx.ihsws.it
       http:
         paths:
           - pathType: ImplementationSpecific
@@ -30,6 +29,6 @@ spec:
                 port:
                   name: http
   tls:
-    - secretName: tls-ihsws-cloud-p
+    - secretName: tls-ihsws-it-s
       hosts:
-        - lighthouse-jx.ihsws.cloud
+        - lighthouse-jx.ihsws.it

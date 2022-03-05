@@ -20,8 +20,8 @@ spec:
                 port:
                   number: 80
             path: "/hook"
-      host: hook-jx.ihsws.cloud
+      host: hook-jx.ihsws.it
   tls:
     - hosts:
-        - hook-jx.ihsws.cloud
-      secretName: "tls-ihsws-cloud-p"
+        - hook-jx.ihsws.it
+      secretName: "tls-ihsws-it-s"
