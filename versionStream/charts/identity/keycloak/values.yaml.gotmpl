@@ -1,8 +1,5 @@
 ingress:
   enabled: true
-  annotations:
-
-  apiVersion: "networking.k8s.io/v1"
 
   hosts:
   - "identity.{{ .Values.jxRequirements.ingress.domain | default "cluster.local" }}"
