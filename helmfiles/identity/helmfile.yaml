@@ -16,5 +16,7 @@ releases:
   - jx-values.yaml
 - chart: ../../charts/addons
   name: addons
+  values:
+  - jx-values.yaml
 templates: {}
 renderedvalues: {}

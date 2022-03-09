@@ -21,6 +21,12 @@
 	      <td><a href='https://www.keycloak.org'>source</a></td>
 	    </tr>
     <tr>
+	      <td><a href='' title=''> <img src='' width='24px' height='24px'> ../charts/addons </a></td>
+	      <td></td>
+	      <td></td>
+	      <td></td>
+	    </tr>
+    <tr>
 		      <td colspan='4'><h3>jx</h3></td>
 		    </tr>
 	    <tr>

@@ -35,6 +35,8 @@
     sources:
     - https://github.com/bitnami/bitnami-docker-keycloak
     - https://github.com/keycloak/keycloak
+  - name: ../charts/addons
+    repositoryName: ..
 - namespace: jx
   path: helmfiles/jx/helmfile.yaml
   releases:
