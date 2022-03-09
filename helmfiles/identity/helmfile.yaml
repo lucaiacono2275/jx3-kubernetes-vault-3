@@ -12,7 +12,9 @@ releases:
   name: keycloak
   values:
   - values.yaml
-  - ../../versionStream/charts/identity/keycloak/values.yaml.gotmpl
+  - ../../versionStream/charts/bitnami/keycloak/values.yaml.gotmpl
   - jx-values.yaml
+- chart: ../../charts/addons
+  name: addons
 templates: {}
 renderedvalues: {}
