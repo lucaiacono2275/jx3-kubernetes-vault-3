@@ -6,7 +6,7 @@ metadata:
   namespace: identity
   labels:
     app.kubernetes.io/name: keycloak
-    helm.sh/chart: keycloak-7.0.1
+    helm.sh/chart: keycloak-7.1.0
     app.kubernetes.io/instance: keycloak
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/component: keycloak
@@ -15,8 +15,8 @@ metadata:
     meta.helm.sh/release-name: 'keycloak'
 spec:
   type: LoadBalancer
+  sessionAffinity: None
   externalTrafficPolicy: "Cluster"
-  loadBalancerSourceRanges: []
   ports:
     - name: http
       port: 80
