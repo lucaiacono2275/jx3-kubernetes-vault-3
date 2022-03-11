@@ -6,11 +6,11 @@ metadata:
   namespace: identity
   labels:
     app.kubernetes.io/name: keycloak
-    helm.sh/chart: keycloak-7.1.1
+    helm.sh/chart: keycloak-7.1.2
     app.kubernetes.io/instance: keycloak
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/component: keycloak
     gitops.jenkins-x.io/pipeline: 'namespaces'
   annotations:
     meta.helm.sh/release-name: 'keycloak'
-automountServiceAccountToken: false
+automountServiceAccountToken: true
