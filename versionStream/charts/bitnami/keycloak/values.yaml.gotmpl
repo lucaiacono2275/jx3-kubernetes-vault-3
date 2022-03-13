@@ -10,9 +10,9 @@ ingress:
 {{- if and (.Values.jxRequirements.ingress.tls.enabled) (hasKey .Values.jxRequirements.ingress "tls") (hasKey .Values.jxRequirements.ingress.tls "secretName") }}
       "{{ .Values.jxRequirements.ingress.tls.secretName }}": {}
 {{- else if .Values.jxRequirements.ingress.tls.production }}
-      "jx/tls-{{ .Values.jxRequirements.ingress.domain | replace "." "-" }}-p": {}
+      "tls-{{ .Values.jxRequirements.ingress.domain | replace "." "-" }}-p": {}
 {{- else }}
-      "jx/tls-{{ .Values.jxRequirements.ingress.domain | replace "." "-" }}-s": {}
+      "tls-{{ .Values.jxRequirements.ingress.domain | replace "." "-" }}-s": {}
 {{- end }}
 
 

@@ -66,5 +66,7 @@ releases:
   values:
   - ../../versionStream/charts/jxgh/lighthouse-webui-plugin/values.yaml.gotmpl
   - jx-values.yaml
+- chart: ../../charts/addons-jx
+  name: addons-jx  
 templates: {}
 renderedvalues: {}
