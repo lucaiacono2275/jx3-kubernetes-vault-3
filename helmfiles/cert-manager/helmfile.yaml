@@ -7,11 +7,15 @@ namespace: cert-manager
 repositories:
 - name: jetstack
   url: https://charts.jetstack.io
+- name: emberstack 
+  url: https://emberstack.github.io/helm-charts
 releases:
 - chart: jetstack/cert-manager
   name: cert-manager
   values:
   - values.yaml
+- chart: emberstack/reflector
+  name: reflector
 - chart: ../../charts/addons-cert-manager
   name: addons-cert-manager
 templates: {}
