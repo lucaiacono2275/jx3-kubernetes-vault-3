@@ -12,6 +12,27 @@
   </thead>
   <tbody>
     <tr>
+		      <td colspan='4'><h3>cert-manager</h3></td>
+		    </tr>
+	    <tr>
+	      <td><a href='https://github.com/jetstack/cert-manager' title='A Helm chart for cert-manager'> <img src='https://raw.githubusercontent.com/jetstack/cert-manager/master/logo/logo.png' width='24px' height='24px'> cert-manager </a></td>
+	      <td>1.7.1</td>
+	      <td></td>
+	      <td><a href='https://github.com/jetstack/cert-manager'>source</a></td>
+	    </tr>
+    <tr>
+	      <td><a href='https://github.com/emberstack/kubernetes-reflector' title='A Helm chart to deploy Reflector'> <img src='https://raw.githubusercontent.com/emberstack/CDN/master/Projects/ES.FX/es.fx.1.0.0.0.png' width='24px' height='24px'> reflector </a></td>
+	      <td></td>
+	      <td></td>
+	      <td><a href='https://github.com/emberstack/kubernetes-reflector'>source</a></td>
+	    </tr>
+    <tr>
+	      <td><a href='' title=''> <img src='' width='24px' height='24px'> ../charts/addons-cert-manager </a></td>
+	      <td></td>
+	      <td></td>
+	      <td></td>
+	    </tr>
+    <tr>
 		      <td colspan='4'><h3>identity</h3></td>
 		    </tr>
 	    <tr>
@@ -21,7 +42,7 @@
 	      <td><a href='https://www.keycloak.org'>source</a></td>
 	    </tr>
     <tr>
-	      <td><a href='' title=''> <img src='' width='24px' height='24px'> ../charts/addons </a></td>
+	      <td><a href='' title=''> <img src='' width='24px' height='24px'> ../charts/addons-identity </a></td>
 	      <td></td>
 	      <td></td>
 	      <td></td>

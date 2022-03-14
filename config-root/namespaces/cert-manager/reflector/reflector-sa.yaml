@@ -1,0 +1,15 @@
+# Source: reflector/templates/serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: reflector
+  labels:
+    helm.sh/chart: reflector-6.1.23
+    app.kubernetes.io/name: reflector
+    app.kubernetes.io/instance: reflector
+    app.kubernetes.io/version: "6.1.23"
+    app.kubernetes.io/managed-by: Helm
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  annotations:
+    meta.helm.sh/release-name: 'reflector'
+  namespace: cert-manager

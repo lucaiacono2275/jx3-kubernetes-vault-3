@@ -1,3 +1,57 @@
+- namespace: cert-manager
+  path: helmfiles/cert-manager/helmfile.yaml
+  releases:
+  - annotations:
+      artifacthub.io/prerelease: "false"
+    apiVersion: v1
+    appVersion: v1.7.1
+    description: A Helm chart for cert-manager
+    firstDeployed: "2022-03-14T20:34:47Z"
+    home: https://github.com/jetstack/cert-manager
+    icon: https://raw.githubusercontent.com/jetstack/cert-manager/master/logo/logo.png
+    keywords:
+    - cert-manager
+    - kube-lego
+    - letsencrypt
+    - tls
+    lastDeployed: "2022-03-14T20:34:47Z"
+    maintainers:
+    - email: cert-manager-maintainers@googlegroups.com
+      name: cert-manager-maintainers
+    name: cert-manager
+    repositoryName: jetstack
+    repositoryUrl: https://charts.jetstack.io
+    resourcePath: config-root/namespaces/cert-manager/cert-manager
+    sources:
+    - https://github.com/jetstack/cert-manager
+    version: 1.7.1
+  - apiVersion: v2
+    appVersion: 6.1.23
+    description: A Helm chart to deploy Reflector
+    firstDeployed: "2022-03-14T20:34:53Z"
+    home: https://github.com/emberstack/kubernetes-reflector
+    icon: https://raw.githubusercontent.com/emberstack/CDN/master/Projects/ES.FX/es.fx.1.0.0.0.png
+    keywords:
+    - reflector
+    - controller
+    - copy
+    - secrets
+    - configmaps
+    - cert-manager
+    - certificates
+    lastDeployed: "2022-03-14T20:34:53Z"
+    maintainers:
+    - email: helm-charts@emberstack.com
+      name: winromulus
+    name: reflector
+    repositoryName: emberstack
+    repositoryUrl: https://emberstack.github.io/helm-charts
+    resourcePath: config-root/namespaces/cert-manager/reflector
+    sources:
+    - https://github.com/emberstack/kubernetes-reflector
+    type: application
+  - name: ../charts/addons-cert-manager
+    repositoryName: ..
 - namespace: identity
   path: helmfiles/identity/helmfile.yaml
   releases:
@@ -35,7 +89,7 @@
     sources:
     - https://github.com/bitnami/bitnami-docker-keycloak
     - https://github.com/keycloak/keycloak
-  - name: ../charts/addons
+  - name: ../charts/addons-identity
     repositoryName: ..
 - namespace: jx
   path: helmfiles/jx/helmfile.yaml
