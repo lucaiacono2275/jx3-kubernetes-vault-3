@@ -28,7 +28,7 @@ spec:
   template:
     metadata:
       annotations:
-        checksum/configmap-env-vars: 1a5546fb0014d9515dc240fcb47a5cd7fa653d988c2cdf20248f9f719f2d18eb
+        checksum/configmap-env-vars: b065571fcfe2f78b167d5ea3e878a9cd41da04f0f46186d18b8642240c70fc5d
       labels:
         app.kubernetes.io/name: keycloak
         helm.sh/chart: keycloak-7.1.5
