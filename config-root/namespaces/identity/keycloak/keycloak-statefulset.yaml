@@ -6,7 +6,7 @@ metadata:
   namespace: identity
   labels:
     app.kubernetes.io/name: keycloak
-    helm.sh/chart: keycloak-7.1.5
+    helm.sh/chart: keycloak-7.1.6
     app.kubernetes.io/instance: keycloak
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/component: keycloak
@@ -28,10 +28,10 @@ spec:
   template:
     metadata:
       annotations:
-        checksum/configmap-env-vars: b065571fcfe2f78b167d5ea3e878a9cd41da04f0f46186d18b8642240c70fc5d
+        checksum/configmap-env-vars: d09320d0e00ea19b544cc32f2a3fb4ca844f1c54207b093e19ba4bf927f2f929
       labels:
         app.kubernetes.io/name: keycloak
-        helm.sh/chart: keycloak-7.1.5
+        helm.sh/chart: keycloak-7.1.6
         app.kubernetes.io/instance: keycloak
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/component: keycloak
@@ -55,7 +55,7 @@ spec:
         fsGroup: 1001
       containers:
         - name: keycloak
-          image: docker.io/bitnami/keycloak:16.1.1-debian-10-r50
+          image: docker.io/bitnami/keycloak:16.1.1-debian-10-r52
           imagePullPolicy: IfNotPresent
           securityContext:
             runAsNonRoot: true
