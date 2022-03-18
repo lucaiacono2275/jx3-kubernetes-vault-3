@@ -13,6 +13,7 @@ ingress:
   existingSecrets: "tls-{{ .Values.jxRequirements.ingress.domain | replace "." "-" }}-s"
 {{- end }}
 
+proxyAddressForwarding: true
 
 config:
 
