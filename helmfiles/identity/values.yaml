@@ -1,3 +1,6 @@
+global:
+  storageClass: "nfs-client-w"
+
 auth:
   existingSecret: keycloak-secret
   image:
@@ -6,6 +9,6 @@ auth:
     tag: 4.4.0-debian-10-r4
 
 postgresql:
-  existingSecret: keycloak-postgresql-secret
-  persistence:
-    enabled: true
+  auth: 
+    existingSecret: keycloak-postgresql-secret
+

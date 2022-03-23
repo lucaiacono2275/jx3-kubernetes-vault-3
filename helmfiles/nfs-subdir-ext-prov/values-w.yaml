@@ -32,7 +32,7 @@ storageClass:
 
   # Set a StorageClass name
   # Ignored if storageClass.create is false
-  name: nfs-client
+  name: nfs-client-w
 
   # Allow volume to be expanded dynamically
   allowVolumeExpansion: true
