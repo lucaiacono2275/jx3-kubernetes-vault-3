@@ -8,7 +8,7 @@ image:
 imagePullSecrets: []
 
 nfs:
-  server: 192.168.1.5
+  server: 192.168.1.6
   path: /nfs/k8s
   mountOptions:
     - rw
