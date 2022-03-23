@@ -1,14 +1,24 @@
 global:
   storageClass: "nfs-client-w"
 
+
+image:
+  registry: docker.io
+  repository: bitnami/keycloak
+  tag: 16.1.1-debian-10-r36
+  debug: false
+
 auth:
   existingSecret: keycloak-secret
-  image:
-    registry: docker.io
-    repository: bitnami/keycloak-config-cli
-    tag: 4.4.0-debian-10-r4
+#    name: keycloak-secret
+#    keyMapping:
+#      admin-password: myPasswordKey
+#      management-password: myManagementPasswordKey
+#      password:
+#      tls-keystore-password: myTlsKeystorePasswordKey
+#      tls-truestore-password: myTlsTruestorePasswordKey
 
 postgresql:
-  auth: 
-    existingSecret: keycloak-postgresql-secret
+  enabled: true
+
 
