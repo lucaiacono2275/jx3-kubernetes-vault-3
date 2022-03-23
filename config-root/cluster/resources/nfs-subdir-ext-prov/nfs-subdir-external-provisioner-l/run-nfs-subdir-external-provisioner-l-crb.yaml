@@ -6,16 +6,16 @@ metadata:
     chart: nfs-subdir-external-provisioner-4.0.16
     heritage: Helm
     app: nfs-subdir-external-provisioner
-    release: nfs-subdir-external-provisioner
+    release: nfs-subdir-external-provisioner-l
     gitops.jenkins-x.io/pipeline: 'cluster'
-  name: run-nfs-subdir-external-provisioner
+  name: run-nfs-subdir-external-provisioner-l
   annotations:
-    meta.helm.sh/release-name: 'nfs-subdir-external-provisioner'
+    meta.helm.sh/release-name: 'nfs-subdir-external-provisioner-l'
 subjects:
   - kind: ServiceAccount
-    name: nfs-subdir-external-provisioner
+    name: nfs-subdir-external-provisioner-l
     namespace: nfs-subdir-ext-prov
 roleRef:
   kind: ClusterRole
-  name: nfs-subdir-external-provisioner-runner
+  name: nfs-subdir-external-provisioner-l-runner
   apiGroup: rbac.authorization.k8s.io

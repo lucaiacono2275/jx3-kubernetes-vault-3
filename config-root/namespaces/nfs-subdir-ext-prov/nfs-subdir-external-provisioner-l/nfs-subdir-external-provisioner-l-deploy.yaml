@@ -1,0 +1,51 @@
+# Source: nfs-subdir-external-provisioner/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nfs-subdir-external-provisioner-l
+  labels:
+    chart: nfs-subdir-external-provisioner-4.0.16
+    heritage: Helm
+    app: nfs-subdir-external-provisioner
+    release: nfs-subdir-external-provisioner-l
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  annotations:
+    meta.helm.sh/release-name: 'nfs-subdir-external-provisioner-l'
+    wave.pusher.com/update-on-config-change: 'true'
+  namespace: nfs-subdir-ext-prov
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: nfs-subdir-external-provisioner
+      release: nfs-subdir-external-provisioner-l
+  template:
+    metadata:
+      annotations:
+      labels:
+        app: nfs-subdir-external-provisioner
+        release: nfs-subdir-external-provisioner-l
+    spec:
+      serviceAccountName: nfs-subdir-external-provisioner-l
+      securityContext: {}
+      containers:
+        - name: nfs-subdir-external-provisioner
+          image: "k8s.gcr.io/sig-storage/nfs-subdir-external-provisioner:v4.0.2"
+          imagePullPolicy: IfNotPresent
+          securityContext: {}
+          volumeMounts:
+            - name: nfs-subdir-external-provisioner-root
+              mountPath: /persistentvolumes
+          env:
+            - name: PROVISIONER_NAME
+              value: cluster.local/nfs-subdir-external-provisioner-l
+            - name: NFS_SERVER
+              value: 192.168.1.5
+            - name: NFS_PATH
+              value: /nfs/k8s
+      volumes:
+        - name: nfs-subdir-external-provisioner-root
+          persistentVolumeClaim:
+            claimName: pvc-nfs-subdir-external-provisioner-l
