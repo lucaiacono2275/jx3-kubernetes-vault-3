@@ -2,15 +2,15 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nfs-subdir-external-provisioner
+  name: nfs-subdir-external-provisioner-w
   labels:
     chart: nfs-subdir-external-provisioner-4.0.16
     heritage: Helm
     app: nfs-subdir-external-provisioner
-    release: nfs-subdir-external-provisioner
+    release: nfs-subdir-external-provisioner-w
     gitops.jenkins-x.io/pipeline: 'namespaces'
   annotations:
-    meta.helm.sh/release-name: 'nfs-subdir-external-provisioner'
+    meta.helm.sh/release-name: 'nfs-subdir-external-provisioner-w'
     wave.pusher.com/update-on-config-change: 'true'
   namespace: nfs-subdir-ext-prov
 spec:
@@ -20,15 +20,15 @@ spec:
   selector:
     matchLabels:
       app: nfs-subdir-external-provisioner
-      release: nfs-subdir-external-provisioner
+      release: nfs-subdir-external-provisioner-w
   template:
     metadata:
       annotations:
       labels:
         app: nfs-subdir-external-provisioner
-        release: nfs-subdir-external-provisioner
+        release: nfs-subdir-external-provisioner-w
     spec:
-      serviceAccountName: nfs-subdir-external-provisioner
+      serviceAccountName: nfs-subdir-external-provisioner-w
       securityContext: {}
       containers:
         - name: nfs-subdir-external-provisioner
@@ -40,7 +40,7 @@ spec:
               mountPath: /persistentvolumes
           env:
             - name: PROVISIONER_NAME
-              value: cluster.local/nfs-subdir-external-provisioner
+              value: cluster.local/nfs-subdir-external-provisioner-w
             - name: NFS_SERVER
               value: 192.168.1.5
             - name: NFS_PATH
@@ -48,4 +48,4 @@ spec:
       volumes:
         - name: nfs-subdir-external-provisioner-root
           persistentVolumeClaim:
-            claimName: pvc-nfs-subdir-external-provisioner
+            claimName: pvc-nfs-subdir-external-provisioner-w

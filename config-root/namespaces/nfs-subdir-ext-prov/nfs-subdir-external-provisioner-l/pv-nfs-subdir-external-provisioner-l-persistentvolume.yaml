@@ -1,0 +1,31 @@
+# Source: nfs-subdir-external-provisioner/templates/persistentvolume.yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-nfs-subdir-external-provisioner-l
+  labels:
+    chart: nfs-subdir-external-provisioner-4.0.16
+    heritage: Helm
+    app: nfs-subdir-external-provisioner
+    release: nfs-subdir-external-provisioner-l
+    nfs-subdir-external-provisioner: nfs-subdir-external-provisioner-l
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  annotations:
+    meta.helm.sh/release-name: 'nfs-subdir-external-provisioner-l'
+  namespace: nfs-subdir-ext-prov
+spec:
+  capacity:
+    storage: 10Mi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: ""
+  mountOptions:
+    - rw
+    - nolock
+    - noatime
+    - tcp
+  nfs:
+    server: 192.168.1.5
+    path: /nfs/k8s

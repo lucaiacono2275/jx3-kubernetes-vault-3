@@ -4,10 +4,10 @@ kind: Deployment
 metadata:
   name: reflector
   labels:
-    helm.sh/chart: reflector-6.1.23
+    helm.sh/chart: reflector-6.1.47
     app.kubernetes.io/name: reflector
     app.kubernetes.io/instance: reflector
-    app.kubernetes.io/version: "6.1.23"
+    app.kubernetes.io/version: "6.1.47"
     app.kubernetes.io/managed-by: Helm
     gitops.jenkins-x.io/pipeline: 'namespaces'
   annotations:
@@ -38,7 +38,7 @@ spec:
             readOnlyRootFilesystem: false
             runAsNonRoot: true
             runAsUser: 1000
-          image: "emberstack/kubernetes-reflector:6.1.23"
+          image: "emberstack/kubernetes-reflector:6.1.47"
           imagePullPolicy: IfNotPresent
           env:
             - name: ES_Serilog__MinimumLevel__Default
