@@ -7,6 +7,8 @@ namespace: jx
 repositories:
 - name: jxgh
   url: https://jenkins-x-charts.github.io/repo
+- name: k8s-at-home
+  url: https://k8s-at-home.com/charts
 releases:
 - chart: jxgh/jxboot-helmfile-resources
   version: 1.1.23
@@ -65,6 +67,12 @@ releases:
   name: lighthouse-webui-plugin
   values:
   - ../../versionStream/charts/jxgh/lighthouse-webui-plugin/values.yaml.gotmpl
+  - jx-values.yaml
+- chart: k8s-at-home/oauth2-proxy
+  version: 5.0.3
+  name: oauth2-proxy
+  values:
+  - ../../versionStream/charts/k8s-at-home/oauth2-proxy/values.yaml.gotmpl
   - jx-values.yaml
 templates: {}
 renderedvalues: {}

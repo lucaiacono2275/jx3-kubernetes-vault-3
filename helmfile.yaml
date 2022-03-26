@@ -4,9 +4,9 @@ helmfiles:
 - path: helmfiles/identity/helmfile.yaml
 - path: helmfiles/jx/helmfile.yaml
 - path: helmfiles/kuberhealthy/helmfile.yaml
+- path: helmfiles/nfs-subdir-ext-prov/helmfile.yaml
 - path: helmfiles/nginx/helmfile.yaml
 - path: helmfiles/secret-infra/helmfile.yaml
 - path: helmfiles/tekton-pipelines/helmfile.yaml
-- path: helmfiles/nfs-subdir-ext-prov/helmfile.yaml
 templates: {}
 renderedvalues: {}
