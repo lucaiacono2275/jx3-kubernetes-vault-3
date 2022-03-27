@@ -74,5 +74,13 @@ releases:
   values:
   - ../../versionStream/charts/k8s-at-home/oauth2-proxy/values.yaml.gotmpl
   - jx-values.yaml
+  - pv-values.yaml
+  extraArgs:
+    provider: keycloak  
+    login-url: "https://identity.ihsws.it/auth/realms/ihsws.it/protocol/openid-connect/auth"
+    redeem-url: "https://identity.ihsws.it/auth/realms/ihsws.it/protocol/openid-connect/token"
+    profile-url: "https://identity.ihsws.it/auth/realms/ihsws.it/protocol/openid-connect/userinfo"
+    validate-url: "https://identity.ihsws.it/auth/realms/ihsws.it/protocol/openid-connect/userinfo"
+    keycloak-group: admin
 templates: {}
 renderedvalues: {}
