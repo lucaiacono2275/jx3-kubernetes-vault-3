@@ -1,5 +1,10 @@
 extraArgs:
-  provider: keycloak
+  provider: "keycloak"
+  login-url: "https://identity.ihsws.it/auth/realms/ihsws/protocol/openid-connect/auth"
+  redeem-url: "https://identity.ihsws.it/auth/realms/ihsws/protocol/openid-connect/token"
+  profile-url: "https://identity.ihsws.it/auth/realms/ihsws/protocol/openid-connect/userinfo"
+  validate-url: "https://identity.ihsws.it/auth/realms/ihsws/protocol/openid-connect/userinfo"
+  keycloak-group: "/jx-admin"
 
 config:
   clientID: ""
