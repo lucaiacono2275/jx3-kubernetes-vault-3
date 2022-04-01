@@ -28,6 +28,7 @@ releases:
   values:
   - ../../versionStream/charts/jxgh/jx-pipelines-visualizer/values.yaml.gotmpl
   - jx-values.yaml
+  - pv-values.yaml  
 - chart: jxgh/jx-preview
   version: 0.0.192
   name: jx-preview
@@ -68,19 +69,19 @@ releases:
   values:
   - ../../versionStream/charts/jxgh/lighthouse-webui-plugin/values.yaml.gotmpl
   - jx-values.yaml
+  - pv-values.yaml  
 - chart: k8s-at-home/oauth2-proxy
   version: 5.0.3
   name: oauth2-proxy
   values:
   - ../../versionStream/charts/k8s-at-home/oauth2-proxy/values.yaml.gotmpl
   - jx-values.yaml
-  - pv-values.yaml
   extraArgs:
     provider: keycloak  
-    login-url: "https://identity.ihsws.it/auth/realms/ihsws.it/protocol/openid-connect/auth"
-    redeem-url: "https://identity.ihsws.it/auth/realms/ihsws.it/protocol/openid-connect/token"
-    profile-url: "https://identity.ihsws.it/auth/realms/ihsws.it/protocol/openid-connect/userinfo"
-    validate-url: "https://identity.ihsws.it/auth/realms/ihsws.it/protocol/openid-connect/userinfo"
-    keycloak-group: admin
+    login-url: "https://identity.ihsws.it/auth/realms/ihsws/protocol/openid-connect/auth"
+    redeem-url: "https://identity.ihsws.it/auth/realms/ihsws/protocol/openid-connect/token"
+    profile-url: "https://identity.ihsws.it/auth/realms/ihsws/protocol/openid-connect/userinfo"
+    validate-url: "https://identity.ihsws.it/auth/realms/ihsws/protocol/openid-connect/userinfo"
+    keycloak-group: /jx-admin
 templates: {}
 renderedvalues: {}
