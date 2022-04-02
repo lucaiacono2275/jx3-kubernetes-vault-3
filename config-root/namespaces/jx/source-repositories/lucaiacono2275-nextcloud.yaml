@@ -1,0 +1,22 @@
+apiVersion: jenkins.io/v1
+kind: SourceRepository
+metadata:
+  creationTimestamp: null
+  labels:
+    owner: lucaiacono2275
+    provider: github
+    repository: nextcloud
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  name: lucaiacono2275-nextcloud
+  namespace: jx
+spec:
+  httpCloneURL: https://github.com/lucaiacono2275/nextcloud.git
+  org: lucaiacono2275
+  provider: https://github.com
+  providerKind: github
+  providerName: github
+  repo: nextcloud
+  scheduler:
+    kind: ""
+    name: in-repo
+  url: https://github.com/lucaiacono2275/nextcloud

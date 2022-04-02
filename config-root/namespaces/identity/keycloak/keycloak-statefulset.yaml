@@ -6,7 +6,7 @@ metadata:
   namespace: identity
   labels:
     app.kubernetes.io/name: keycloak
-    helm.sh/chart: keycloak-7.1.6
+    helm.sh/chart: keycloak-7.1.11
     app.kubernetes.io/instance: keycloak
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/component: keycloak
@@ -28,10 +28,10 @@ spec:
   template:
     metadata:
       annotations:
-        checksum/configmap-env-vars: d09320d0e00ea19b544cc32f2a3fb4ca844f1c54207b093e19ba4bf927f2f929
+        checksum/configmap-env-vars: e4f6286eedbcb19900f1190b4bfb90c9482286376e9bfde57e2c0beb0f9fac68
       labels:
         app.kubernetes.io/name: keycloak
-        helm.sh/chart: keycloak-7.1.6
+        helm.sh/chart: keycloak-7.1.11
         app.kubernetes.io/instance: keycloak
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/component: keycloak

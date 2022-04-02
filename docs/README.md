@@ -99,6 +99,12 @@
 	      <td><a href='https://github.com/jenkins-x-plugins/lighthouse-webui-plugin'>source</a></td>
 	    </tr>
     <tr>
+	      <td><a href='https://github.com/k8s-at-home/charts/tree/master/charts/stable/oauth2-proxy' title='A reverse proxy that provides authentication with Google, Github or other providers'> <img src='' width='24px' height='24px'> oauth2-proxy </a></td>
+	      <td>5.0.3</td>
+	      <td><a href='http://dashboard-jx.ihsws.it/oauth2'>view</a></td>
+	      <td><a href='https://github.com/k8s-at-home/charts/tree/master/charts/stable/oauth2-proxy'>source</a></td>
+	    </tr>
+    <tr>
 		      <td colspan='4'><h3>kuberhealthy</h3></td>
 		    </tr>
 	    <tr>
@@ -112,6 +118,15 @@
 	      <td>0.0.78</td>
 	      <td></td>
 	      <td><a href='https://jenkins-x.io/'>source</a></td>
+	    </tr>
+    <tr>
+		      <td colspan='4'><h3>nfs-subdir-ext-prov</h3></td>
+		    </tr>
+	    <tr>
+	      <td><a href='https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner' title='nfs-subdir-external-provisioner is an automatic provisioner that used your *already configured* NFS server, automatically creating Persistent Volumes.'> <img src='' width='24px' height='24px'> nfs-subdir-external-provisioner </a></td>
+	      <td></td>
+	      <td></td>
+	      <td><a href='https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner'>source</a></td>
 	    </tr>
     <tr>
 		      <td colspan='4'><h3>nginx</h3></td>
@@ -145,21 +160,6 @@
 	      <td>0.27.2</td>
 	      <td></td>
 	      <td><a href='https://github.com/cdfoundation/tekton-helm-chart'>source</a></td>
-	    </tr>
-    <tr>
-		      <td colspan='4'><h3>nfs-subdir-ext-prov</h3></td>
-		    </tr>
-	    <tr>
-	      <td><a href='https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner' title='nfs-subdir-external-provisioner is an automatic provisioner that used your *already configured* NFS server, automatically creating Persistent Volumes.'> <img src='' width='24px' height='24px'> nfs-subdir-external-provisioner </a></td>
-	      <td></td>
-	      <td></td>
-	      <td><a href='https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner'>source</a></td>
-	    </tr>
-    <tr>
-	      <td><a href='https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner' title='nfs-subdir-external-provisioner is an automatic provisioner that used your *already configured* NFS server, automatically creating Persistent Volumes.'> <img src='' width='24px' height='24px'> nfs-subdir-external-provisioner </a></td>
-	      <td></td>
-	      <td></td>
-	      <td><a href='https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner'>source</a></td>
 	    </tr>
 
   </tbody>

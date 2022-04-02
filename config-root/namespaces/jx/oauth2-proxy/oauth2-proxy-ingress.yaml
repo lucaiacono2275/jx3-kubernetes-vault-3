@@ -1,0 +1,30 @@
+# Source: oauth2-proxy/templates/ingress.yaml
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  labels:
+    app: oauth2-proxy
+    chart: oauth2-proxy-5.0.3
+    heritage: Helm
+    release: oauth2-proxy
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  name: oauth2-proxy
+  annotations:
+    meta.helm.sh/release-name: 'oauth2-proxy'
+  namespace: jx
+spec:
+  rules:
+    - host: "dashboard-jx.ihsws.it"
+      http:
+        paths:
+          - path: /oauth2
+            backend:
+              serviceName: oauth2-proxy
+              servicePort: 80
+    - host: "lighthouse-jx.ihsws.it"
+      http:
+        paths:
+          - path: /oauth2
+            backend:
+              serviceName: oauth2-proxy
+              servicePort: 80

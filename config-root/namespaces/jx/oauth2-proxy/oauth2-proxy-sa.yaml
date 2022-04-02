@@ -1,0 +1,14 @@
+# Source: oauth2-proxy/templates/serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  labels:
+    app: oauth2-proxy
+    chart: oauth2-proxy-5.0.3
+    release: oauth2-proxy
+    heritage: Helm
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  name: oauth2-proxy
+  annotations:
+    meta.helm.sh/release-name: 'oauth2-proxy'
+  namespace: jx

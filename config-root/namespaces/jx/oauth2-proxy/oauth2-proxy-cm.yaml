@@ -1,0 +1,16 @@
+# Source: oauth2-proxy/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    app: oauth2-proxy
+    chart: oauth2-proxy-5.0.3
+    heritage: Helm
+    release: oauth2-proxy
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  name: oauth2-proxy
+  annotations:
+    meta.helm.sh/release-name: 'oauth2-proxy'
+  namespace: jx
+data:
+  oauth2_proxy.cfg: "email_domains = [ \"*\" ]\nupstreams = [ \"file:///dev/null\" ]"
