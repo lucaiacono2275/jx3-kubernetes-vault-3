@@ -42,7 +42,7 @@ spec:
             - --profile-url=https://identity.ihsws.it/auth/realms/ihsws/protocol/openid-connect/userinfo
             - --provider=keycloak
             - --redeem-url=https://identity.ihsws.it/auth/realms/ihsws/protocol/openid-connect/token
-            - --scope=email,profile
+            - --scope=profile
             - --validate-url=https://identity.ihsws.it/auth/realms/ihsws/protocol/openid-connect/userinfo
             - --config=/etc/oauth2_proxy/oauth2_proxy.cfg
           env:
