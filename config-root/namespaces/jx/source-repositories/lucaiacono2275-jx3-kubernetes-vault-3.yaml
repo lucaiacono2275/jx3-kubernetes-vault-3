@@ -5,18 +5,18 @@ metadata:
   labels:
     owner: lucaiacono2275
     provider: github
-    repository: nextcloud
+    repository: jx3-kubernetes-vault-3
     gitops.jenkins-x.io/pipeline: 'namespaces'
-  name: lucaiacono2275-nextcloud
+  name: lucaiacono2275-jx3-kubernetes-vault-3
   namespace: jx
 spec:
-  httpCloneURL: https://github.com/lucaiacono2275/nextcloud.git
+  httpCloneURL: https://github.com/lucaiacono2275/jx3-kubernetes-vault-3.git
   org: lucaiacono2275
   provider: https://github.com
   providerKind: github
   providerName: github
-  repo: nextcloud
+  repo: jx3-kubernetes-vault-3
   scheduler:
     kind: ""
     name: in-repo
-  url: https://github.com/lucaiacono2275/nextcloud
+  url: https://github.com/lucaiacono2275/jx3-kubernetes-vault-3

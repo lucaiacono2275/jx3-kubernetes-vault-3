@@ -8,7 +8,7 @@ data:
       require_self_approval: true
     - lgtm_acts_as_approve: true
       repos:
-      - lucaiacono2275/nextcloud
+      - lucaiacono2275/jx3-kubernetes-vault-3
       require_self_approval: true
     cat: {}
     cherry_pick_unapproved: {}
@@ -25,11 +25,6 @@ data:
         name: cd-indicators
       - endpoint: http://lighthouse-webui-plugin.jx.svc.cluster.local/lighthouse/events
         name: lighthouse-webui-plugin
-      lucaiacono2275/nextcloud:
-      - endpoint: http://cd-indicators.jx.svc.cluster.local/lighthouse/events
-        name: cd-indicators
-      - endpoint: http://lighthouse-webui-plugin.jx.svc.cluster.local/lighthouse/events
-        name: lighthouse-webui-plugin
     heart: {}
     label:
       additional_labels: null
@@ -37,22 +32,6 @@ data:
     plugins:
       lucaiacono2275/jx3-kubernetes-vault-3:
       - config-updater
-      - approve
-      - assign
-      - blunderbuss
-      - help
-      - hold
-      - lgtm
-      - lifecycle
-      - override
-      - size
-      - trigger
-      - wip
-      - heart
-      - cat
-      - dog
-      - pony
-      lucaiacono2275/nextcloud:
       - approve
       - assign
       - blunderbuss
@@ -81,10 +60,8 @@ data:
       - lucaiacono2275/jx3-kubernetes-vault-3
       trusted_org: todo
     - repos:
-      - lucaiacono2275/nextcloud
+      - lucaiacono2275/jx3-kubernetes-vault-3
       trusted_org: todo
-    welcome:
-    - message_template: Welcome
 kind: ConfigMap
 metadata:
   creationTimestamp: null
