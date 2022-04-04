@@ -6,10 +6,6 @@ data:
       repos:
       - lucaiacono2275/jx3-kubernetes-vault-3
       require_self_approval: true
-    - lgtm_acts_as_approve: true
-      repos:
-      - lucaiacono2275/jx3-kubernetes-vault-3
-      require_self_approval: true
     cat: {}
     cherry_pick_unapproved: {}
     config_updater:
@@ -56,9 +52,6 @@ data:
       xl: 0
       xxl: 0
     triggers:
-    - repos:
-      - lucaiacono2275/jx3-kubernetes-vault-3
-      trusted_org: todo
     - repos:
       - lucaiacono2275/jx3-kubernetes-vault-3
       trusted_org: todo
